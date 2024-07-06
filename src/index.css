@@ -18,11 +18,16 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #AC47F7;
+  background: #ac47f7;
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000;
+}
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 }
