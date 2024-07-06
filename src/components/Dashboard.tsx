@@ -3,15 +3,16 @@ import { useState } from "react";
 import { PiBookOpen } from "react-icons/pi";
 import { TbMessageChatbot } from "react-icons/tb";
 import Summary from "./Summary";
+import Chatgpt from "./Chatgpt";
 
 function Dashboard() {
   const [Summarytoggle, Setsummarytoggle] = useState(true);
   const [Chatgpttoggle, Setchatgpttoggle] = useState(false);
 
   return (
-    <div className=" w-full  bg-[#050C30]  px-2 scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+    <div className=" w-full  bg-[#050C30]  px-2 scrollbar-thumb-sky-700 scrollbar-track-sky-300 ">
       <div className="container mx-auto">
-        <div className="border-[2px] rounded-lg border-[#AC47F7]  h-full flex flex-col  py-8">
+        <div className="border-[2px] rounded-lg border-[#AC47F7]  h-full flex flex-col  py-8 bg-opacity-10 backdrop-filter backdrop-blur-lg  bg-white">
           <div className="w-full p-3 flex items-center gap-6 justify-center">
             <div className="flex items-center justify-center gap-5 ">
               <button
@@ -51,6 +52,7 @@ function Dashboard() {
             <div className="border border-[#4D66D0]"></div>
           </div>
           {Summarytoggle && <Summary />}
+          {Chatgpttoggle && <Chatgpt />}
         </div>
       </div>
     </div>
