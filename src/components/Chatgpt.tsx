@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { TbMessageChatbot } from "react-icons/tb";
 import { GoPlus } from "react-icons/go";
 
 function Chatgpt() {
-  const Chatdata = [
+  const [Userdata, Setuserdata] = useState("");
+  const [Chatdata, Setchatdata] = useState([
     {
       role: "AI",
       content: (
@@ -50,7 +52,7 @@ function Chatgpt() {
         </p>
       ),
     },
-  ];
+  ]);
 
   return (
     <div className="h-[70vh] ">
@@ -65,14 +67,26 @@ function Chatgpt() {
         <div className="w-full px-5 py-3 absolute bottom-0">
           <div className="w-full relative">
             <textarea
+              onChange={(e) => {
+                Setuserdata(e.currentTarget.value);
+              }}
               className="bg-[#4D66D0] px-5 pt-2 rounded-md py-3 w-full pl-10 pr-24 overflow-hidden text-white"
-              style={{ paddingLeft: "4rem" , paddingTop:"1rem" }} // Adding padding to the right side
+              style={{ paddingLeft: "4rem", paddingTop: "1rem" }} 
             />
             <GoPlus
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 bg-[#bbc7fe] h-8 w-8 rounded-md"
-              style={{ zIndex: 10 }} // Ensure the icon is above the textarea content
+              style={{ zIndex: 10 }} 
             />
-            <div className="h-10 w-20 bg-[#4fffbe] absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center text-black font-bold rounded-md">
+            <div
+              className="h-10 w-20 bg-[#4fffbe] absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center text-black font-bold rounded-md cursor-pointer"
+              onClick={() => {
+                const newMessage = {
+                  role: "user",
+                  content: <p>{Userdata}</p>,
+                };
+                Setchatdata((prevChatdata) => [...prevChatdata, newMessage]);
+              }}
+            >
               Send
             </div>
           </div>
@@ -86,7 +100,7 @@ export default Chatgpt;
 
 interface ChatbubbleProps {
   role: string;
-  content: any; // you may want to provide a more specific type for content
+  content: any; 
 }
 
 const Chatbubble: React.FC<ChatbubbleProps> = ({ role, content }) => {
