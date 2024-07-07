@@ -114,33 +114,25 @@ function Summary() {
         </div>
       </div>
 
-      <div className="w-full rounded-md border border-[#4D66D0] bg-opacity-10 backdrop-filter backdrop-blur-lg  bg-white">
+      <div className="w-full rounded-md border border-[#4D66D0] bg-opacity-10 backdrop-filter backdrop-blur-lg bg-white">
         <div className="w-full h-10 bg-[#42518F] flex items-center justify-center">
-          <h1 className=" text-white tracking-wide ">
+          <h1 className="text-white tracking-wide">
             Unpatched Assets Since 30 days
           </h1>
         </div>
-        <div className="text-white p-5 ">
+        <div className="text-white p-5">
           <ResponsiveContainer width="100%" height={250}>
-            <BarChart width={500} height={300} data={bardata}>
+            <BarChart
+              data={bardata}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" tick={{ fill: "white" }} />
               <YAxis tick={{ fill: "white" }} />
-              <Bar
-                dataKey="count_1"
-                fill={COLORS[0]}
-                activeBar={<Rectangle fill="pink" stroke="blue" />}
-              />
-              <Bar
-                dataKey="count_2"
-                fill={COLORS[1]}
-                activeBar={<Rectangle fill="pink" stroke="blue" />}
-              />
-              <Bar
-                dataKey="count_3"
-                fill={COLORS[2]}
-                activeBar={<Rectangle fill="pink" stroke="blue" />}
-              />
+              <Tooltip />
+              <Bar dataKey="count_1" fill={COLORS[0]} />
+              <Bar dataKey="count_2" fill={COLORS[1]} />
+              <Bar dataKey="count_3" fill={COLORS[2]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -180,33 +172,26 @@ function Summary() {
         </div>
       </div>
 
-      <div className="w-full rounded-md border border-[#4D66D0] bg-opacity-10 backdrop-filter backdrop-blur-lg  bg-white">
+      <div className="w-full rounded-md border border-[#4D66D0] bg-opacity-10 backdrop-filter backdrop-blur-lg bg-white">
         <div className="w-full h-10 bg-[#42518F] flex items-center justify-center">
-          <h1 className=" text-white tracking-wide ">
+          <h1 className="text-white tracking-wide">
             Weak Points (EMP & Machines)
           </h1>
         </div>
-        <div className="text-white p-5 flex-1">
-          <div className="text-white p-5">
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart width={500} height={300} data={gplinedata}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" tick={{ fill: "white" }} />
-                <YAxis tick={{ fill: "white" }} />
-                <Tooltip />
-                <Bar
-                  dataKey="Vulnerability"
-                  fill="#5FFE81"
-                  activeBar={<rect fill="pink" stroke="blue" />}
-                />
-                <Bar
-                  dataKey="SOC"
-                  fill="#FE4B4A"
-                  activeBar={<rect fill="gold" stroke="purple" />}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+        <div className="text-white p-5">
+          <ResponsiveContainer width="100%" height={250}>
+            <BarChart
+              data={gplinedata}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" tick={{ fill: "white" }} />
+              <YAxis tick={{ fill: "white" }} />
+              <Tooltip />
+              <Bar dataKey="Vulnerability" fill="#5FFE81" />
+              <Bar dataKey="SOC" fill="#FE4B4A" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </div>
