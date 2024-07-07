@@ -1,3 +1,3 @@
 import { atom } from "jotai";
 
-export const Resulttoggle = atom(false);
+export const Resulttoggle = atom(true);

@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { TbMessageChatbot } from "react-icons/tb";
 import { GoPlus } from "react-icons/go";
-
+import { GoThumbsup } from "react-icons/go";
+import { GoThumbsdown } from "react-icons/go";
+import { CiMedicalClipboard } from "react-icons/ci";
+import { LuClipboardEdit } from "react-icons/lu";
 function Chatgpt() {
   const [Userdata, Setuserdata] = useState("");
   const [Chatdata, Setchatdata] = useState([
@@ -71,11 +74,11 @@ function Chatgpt() {
                 Setuserdata(e.currentTarget.value);
               }}
               className="bg-[#4D66D0] px-5 pt-2 rounded-md py-3 w-full pl-10 pr-24 overflow-hidden text-white"
-              style={{ paddingLeft: "4rem", paddingTop: "1rem" }} 
+              style={{ paddingLeft: "4rem", paddingTop: "1rem" }}
             />
             <GoPlus
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 bg-[#bbc7fe] h-8 w-8 rounded-md"
-              style={{ zIndex: 10 }} 
+              style={{ zIndex: 10 }}
             />
             <div
               className="h-10 w-20 bg-[#4fffbe] absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center text-black font-bold rounded-md cursor-pointer"
@@ -100,7 +103,7 @@ export default Chatgpt;
 
 interface ChatbubbleProps {
   role: string;
-  content: any; 
+  content: any;
 }
 
 const Chatbubble: React.FC<ChatbubbleProps> = ({ role, content }) => {
@@ -126,6 +129,19 @@ const Chatbubble: React.FC<ChatbubbleProps> = ({ role, content }) => {
       >
         {content}
       </div>
+      {role == "AI" ? (
+        <div className="h-full flex gap-2 items-start justify-end pt-2">
+          {" "}
+          <GoThumbsup className="text-white" />
+          <GoThumbsdown className="text-white" />
+          <CiMedicalClipboard className="text-white" />
+        </div>
+      ) : (
+        <div className="h-full flex gap-3 pt-3">
+          {" "}
+          <LuClipboardEdit className="text-gray-400" />
+        </div>
+      )}
     </div>
   );
 };
