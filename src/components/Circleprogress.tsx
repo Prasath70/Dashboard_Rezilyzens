@@ -1,31 +1,27 @@
 import React from "react";
-import { IoCheckmark } from "react-icons/io5"; // Make sure to import the correct icon
+import { IoCheckmark } from "react-icons/io5"; 
 
 interface RadialProgressProps {
-  percentage: number; // Progress percentage (0-100)
-  size?: number; // Size of the progress bar (default: 100px)
-  strokeWidth?: number; // Width of the progress bar stroke (default: 10px)
-  color?: string; // Color of the background progress bar (default: 'gray')
-  outColor?: string; // Color of the progress circle
+  percentage: number; 
+  size?: number; 
+  strokeWidth?: number; 
+  color?: string; 
+  outColor?: string; 
 }
 
 const RadialProgress: React.FC<RadialProgressProps> = ({
   percentage,
-  size = 100,
   strokeWidth = 10,
   color = "red",
   outColor = "stroke-indigo-500",
 }) => {
-  // Calculate the circumference of the circle
   const radius = 50 - strokeWidth / 2;
   const circumference = 2 * Math.PI * radius;
-  // Calculate the dash offset based on the percentage
   const dashOffset = circumference - (percentage / 100) * circumference;
 
   return (
     <div className="relative flex items-center justify-center w-[1.8rem] h-[1.8rem]">
       <svg className="w-full h-full" viewBox="0 0 100 100">
-        {/* Background circle */}
         <circle
           className={`stroke-${color}`}
           strokeWidth={strokeWidth}
@@ -34,7 +30,6 @@ const RadialProgress: React.FC<RadialProgressProps> = ({
           r={radius}
           fill="transparent"
         ></circle>
-        {/* Overlay circle */}
         <circle
           className={`${(color == "red"
             ? `stroke-${color}-800`
@@ -48,7 +43,6 @@ const RadialProgress: React.FC<RadialProgressProps> = ({
           strokeDasharray={circumference}
           strokeDashoffset="1"
         ></circle>
-        {/* Progress circle */}
         <circle
           className={`${outColor}`}
           strokeWidth={strokeWidth}

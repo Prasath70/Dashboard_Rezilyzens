@@ -1,5 +1,5 @@
 "use clinet";
-import React, { useState } from "react";
+import React from "react";
 import RadialProgress from "./Circleprogress";
 import { HiOutlineExclamationTriangle } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
@@ -60,7 +60,6 @@ function Resultpage() {
     },
   ];
 
-  // Framer Motion variants for staggered animation
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
