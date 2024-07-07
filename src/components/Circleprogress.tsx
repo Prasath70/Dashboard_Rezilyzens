@@ -1,12 +1,12 @@
 import React from "react";
-import { IoCheckmark } from "react-icons/io5"; 
+import { IoCheckmark } from "react-icons/io5";
 
 interface RadialProgressProps {
-  percentage: number; 
-  size?: number; 
-  strokeWidth?: number; 
-  color?: string; 
-  outColor?: string; 
+  percentage: number;
+  size?: number;
+  strokeWidth?: number;
+  color?: string;
+  outColor?: string;
 }
 
 const RadialProgress: React.FC<RadialProgressProps> = ({
@@ -19,11 +19,41 @@ const RadialProgress: React.FC<RadialProgressProps> = ({
   const circumference = 2 * Math.PI * radius;
   const dashOffset = circumference - (percentage / 100) * circumference;
 
+  const getColor = (color: string) => {
+    switch (color) {
+      case "red":
+        return "#e3342f";
+      case "yellow":
+        return "#f59e0b";
+      case "green":
+        return "#38a169";
+      case "purple":
+        return "#7b56b6";
+      default:
+        return color;
+    }
+  };
+
+  const getBackgroundColor = (color: string) => {
+    switch (color) {
+      case "red":
+        return "#c53030";
+      case "yellow":
+        return "#d69e2e";
+      case "green":
+        return "#2f855a";
+      case "purple":
+        return "#7b56b6";
+      default:
+        return color;
+    }
+  };
+
   return (
     <div className="relative flex items-center justify-center w-[1.8rem] h-[1.8rem]">
       <svg className="w-full h-full" viewBox="0 0 100 100">
         <circle
-          className={`stroke-${color}`}
+          style={{ stroke: getColor(color) }}
           strokeWidth={strokeWidth}
           cx="50"
           cy="50"
@@ -31,9 +61,7 @@ const RadialProgress: React.FC<RadialProgressProps> = ({
           fill="transparent"
         ></circle>
         <circle
-          className={`${(color == "red"
-            ? `stroke-${color}-800`
-            : `stroke-${color}-500`)}  `}
+          style={{ stroke: getBackgroundColor(color) }}
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           cx="50"
@@ -44,7 +72,7 @@ const RadialProgress: React.FC<RadialProgressProps> = ({
           strokeDashoffset="1"
         ></circle>
         <circle
-          className={`${outColor}`}
+          className={outColor}
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           cx="50"
@@ -56,9 +84,8 @@ const RadialProgress: React.FC<RadialProgressProps> = ({
         ></circle>
       </svg>
       <IoCheckmark
-        className={`absolute w-[1.3rem] h-[1.3rem] text-white  rounded-full p-1 ${
-          color == "red" ? `bg-${color}-800` : `bg-${color}-500`
-        }`}
+        className={`absolute w-[1.3rem] h-[1.3rem] text-white rounded-full p-1`}
+        style={{ backgroundColor: getBackgroundColor(color) }}
       />
     </div>
   );

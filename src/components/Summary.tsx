@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Pie,
   PieChart,
@@ -13,18 +12,31 @@ import {
   ResponsiveContainer,
 } from "recharts";
 function Summary() {
-  const piedata = [
+  interface Piedataitem {
+    name: string;
+    value: number;
+  }
+  const piedata: Piedataitem[] = [
     { name: "Windows", value: 320 },
     { name: "Linux", value: 230 },
     { name: "OtherOs", value: 100 },
   ];
-  const dognutdata = [
+
+  interface dognutdatautem {
+    name: string;
+    value: number;
+  }
+  const dognutdata: dognutdatautem[] = [
     { name: "Patch", value: 320 },
     { name: "SOC", value: 230 },
     { name: "VPAT", value: 100 },
   ];
-
-  const gplinedata = [
+  interface gplinedataitem {
+    name: string;
+    Vulnerability: number;
+    SOC: number;
+  }
+  const gplinedata: gplinedataitem[] = [
     {
       name: "HR Department",
       Vulnerability: 5,
@@ -41,22 +53,36 @@ function Summary() {
       SOC: 3,
     },
   ];
+  interface bardatataitem {
+    name: string;
+    count_1: number;
 
-  const bardata = [
+    count_2: number;
+
+    count_3: number;
+  }
+  const bardata: bardatataitem[] = [
     {
       name: "Firefall",
       count_1: 5,
+      count_2: 0,
+      count_3: 0,
     },
     {
       name: "Windows",
+      count_1: 0,
       count_2: 4,
+      count_3: 0,
     },
     {
       name: "0365",
+      count_1: 0,
+      count_2: 0,
       count_3: 3,
     },
   ];
-  const COLORS = ["#FE4B4A", "#5FFE81", "#FEAA28"];
+
+  const COLORS: string[] = ["#FE4B4A", "#5FFE81", "#FEAA28"];
 
   return (
     <div className="w-full h-10  rounded-3xl px-2 grid gap-4 flex-1 overflow-auto lg:grid-flow-row lg:grid-cols-2 lg:px-11 lg:py-11">
@@ -76,7 +102,7 @@ function Summary() {
                 fill="#82ca9d"
                 label={({ name }) => ` ${name}`}
               >
-                {piedata.map((entry, index) => (
+                {piedata.map((_, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={COLORS[index % COLORS.length]}
@@ -100,7 +126,6 @@ function Summary() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" tick={{ fill: "white" }} />
               <YAxis tick={{ fill: "white" }} />
-              <Tooltip />
               <Bar
                 dataKey="count_1"
                 fill={COLORS[0]}
@@ -143,7 +168,7 @@ function Summary() {
                 label={({ name }) => ` ${name}`}
               >
                 {" "}
-                {dognutdata.map((entry, index) => (
+                {dognutdata.map((_, index) => (
                   <Cell
                     key={`cell-${index}`}
                     fill={COLORS[index % COLORS.length]}
@@ -162,27 +187,27 @@ function Summary() {
           </h1>
         </div>
         <div className="text-white p-5 flex-1">
-      <div className="text-white p-5">
-        <ResponsiveContainer width="100%" height={250}>
-          <BarChart width={500} height={300} data={gplinedata}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" tick={{ fill: "white" }} />
-            <YAxis tick={{ fill: "white" }} />
-            <Tooltip />
-            <Bar
-              dataKey="Vulnerability"
-              fill="#5FFE81"
-              activeBar={<rect fill="pink" stroke="blue" />}
-            />
-            <Bar
-              dataKey="SOC"
-              fill="#FE4B4A"
-              activeBar={<rect fill="gold" stroke="purple" />}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-    </div>
+          <div className="text-white p-5">
+            <ResponsiveContainer width="100%" height={250}>
+              <BarChart width={500} height={300} data={gplinedata}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" tick={{ fill: "white" }} />
+                <YAxis tick={{ fill: "white" }} />
+                <Tooltip />
+                <Bar
+                  dataKey="Vulnerability"
+                  fill="#5FFE81"
+                  activeBar={<rect fill="pink" stroke="blue" />}
+                />
+                <Bar
+                  dataKey="SOC"
+                  fill="#FE4B4A"
+                  activeBar={<rect fill="gold" stroke="purple" />}
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
       </div>
     </div>
   );

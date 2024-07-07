@@ -47,7 +47,7 @@ function Navbar() {
                   percentage={50}
                   size={10}
                   outColor={"stroke-slate-400"}
-                  color={"red"}
+                  color={"purple"}
                 />
               </div>
               <div className="flex-col px-2 hidden lg:flex">
@@ -93,7 +93,7 @@ function Navbar() {
                   percentage={50}
                   size={10}
                   outColor={"stroke-slate-400"}
-                  color={"green"}
+                  color={"purple"}
                 />
               </div>
               <div className="flex-col px-2 hidden lg:flex">

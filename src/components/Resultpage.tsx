@@ -1,4 +1,4 @@
-"use clinet";
+"use client";
 import React from "react";
 import RadialProgress from "./Circleprogress";
 import { HiOutlineExclamationTriangle } from "react-icons/hi2";
@@ -54,7 +54,7 @@ function Resultpage() {
       heading: "Application Security",
       content:
         "Pinochle-Al is not your average cybersecurity firm—we defy convention and dare to tread where others fear. Our elite operatives embark on deep infiltrations into the darkest corners of theweb, preemptively identifying potential threats before they strike. We lead the charge on the offensive, striking fear into the hearts of cyber adversaries and neutralizing threats. Our globallystationed cybersecurity insurgents respond swiftly and decisively to emerging threats, ensuring unparalleled protection for your digital assets.",
-      percentage: 100,
+      percentage: 90,
       color: "green",
       outColor: "stroke-slate-400",
     },
@@ -78,30 +78,54 @@ function Resultpage() {
   return (
     <div className="w-full">
       <div className="flex items-center justify-end gap-3 py-6">
-        <div className="bg-[#3a4066] rounded-3xl text-white px-4 py-1 border border-[#AC47F8] flex gap-2 items-center justify-center">
-          <div className="h-[1.7rem] w-[1.7rem] rounded-full bg-transparent bg-[#AC47F8] text-white flex items-center justify-center ">
+        <div
+          className="rounded-3xl text-white px-4 py-1 border border-[#AC47F8] flex gap-2 items-center justify-center"
+          style={{ backgroundColor: "#3a4066" }}
+        >
+          <div
+            className="h-[1.7rem] w-[1.7rem] rounded-full text-white flex items-center justify-center"
+            style={{ backgroundColor: "#AC47F8" }}
+          >
             <MdOutlineQuestionMark className="mx-auto h-[0.9rem] w-[0.9rem]" />
           </div>
           <p className="text-center text-sm px-2 py-2 hidden lg:block">
             All Questions
           </p>
         </div>
-        <div className="bg-[#101843] rounded-3xl text-white px-4 py-1 border border-[#AC47F7] flex gap-2 items-center justify-center">
-          <div className="h-[1.7rem] w-[1.7rem] rounded-full bg-transparent bg-[#AC47F8] text-white flex items-center justify-center">
+        <div
+          className="rounded-3xl text-white px-4 py-1 border border-[#AC47F7] flex gap-2 items-center justify-center"
+          style={{ backgroundColor: "#101843" }}
+        >
+          <div
+            className="h-[1.7rem] w-[1.7rem] rounded-full text-white flex items-center justify-center"
+            style={{ backgroundColor: "#AC47F8" }}
+          >
             <HiOutlineExclamationTriangle className="mx-auto h-[0.9rem] w-[0.9rem]" />
           </div>
           <p className="text-center text-sm px-2 py-2 hidden lg:block">
             Vulnerability
           </p>
         </div>
-        <div className="bg-[#101843] rounded-3xl text-white px-4 py-1 border-[#eb886b] border flex gap-2 items-center justify-center">
-          <div className="h-[1.7rem] w-[1.7rem] rounded-full bg-transparent bg-[#eb886b] border flex items-center justify-center">
+        <div
+          className="rounded-3xl text-white px-4 py-1 border border-[#eb886a] flex gap-2 items-center justify-center"
+          style={{ backgroundColor: "#101843" }}
+        >
+          <div
+            className="h-[1.7rem] w-[1.7rem] rounded-full text-white flex items-center justify-center"
+            style={{ backgroundColor: "#eb886a" }}
+          >
             <IoMdClose className="mx-auto h-[0.9rem] w-[0.9rem]" />
           </div>
           <p className="text-center text-sm px-2 py-2 hidden lg:block">SOC</p>
         </div>
-        <div className="bg-[#101843] rounded-3xl text-white px-4 py-1 border border-[#8586bd] flex gap-2 items-center justify-center">
-          <div className="h-[1.7rem] w-[1.7rem] rounded-full bg-transparent bg-[#8586bd] text-white flex items-center justify-center">
+        <div
+          className="rounded-3xl text-white px-4 py-1 border border-[#8586bd] flex gap-2 items-center justify-center"
+          style={{ backgroundColor: "#101843" }}
+        >
+          <div
+            className="h-[1.7rem] w-[1.7rem] rounded-full text-white flex items-center justify-center"
+            style={{ backgroundColor: "#8586bc" }}
+          >
             <MdElectricBolt className="mx-auto h-[0.9rem] w-[0.9rem]" />
           </div>
           <p className="text-center text-sm px-2 py-2 hidden lg:block">
@@ -173,7 +197,10 @@ const Customaccordion: React.FC<accordionprops> = ({
           </div>
 
           <div className="bg-[#2a3463]  px-3 py-1.5 rounded-xl flex gap-2 items-center justify-center">
-            <div className="h-[1.5rem] w-[1.5rem]  md:h-[1.7rem] md:w-[1.7rem] rounded-full bg-transparent bg-[#eb886b] text-white flex items-center justify-center ">
+            <div
+              className="h-[1.5rem] w-[1.5rem]  md:h-[1.7rem] md:w-[1.7rem] rounded-full bg-transparent  text-white flex items-center justify-center "
+              style={{ backgroundColor: "#eb886b" }}
+            >
               <IoMdClose className="mx-auto h-[0.9rem] w-[0.9rem]" />
             </div>
             <p className=" text-center  text-sm px-2 py-2 hidden lg:block text-white">
@@ -181,7 +208,10 @@ const Customaccordion: React.FC<accordionprops> = ({
             </p>{" "}
           </div>
           <div className="bg-[#2a3463]  px-3 py-1.5 rounded-xl flex gap-2 items-center justify-center">
-            <div className="h-[1.5rem] w-[1.5rem]  md:h-[1.7rem] md:w-[1.7rem] rounded-full bg-transparent bg-[#8586bd] text-white flex items-center justify-center">
+            <div
+              className="h-[1.5rem] w-[1.5rem]  md:h-[1.7rem] md:w-[1.7rem] rounded-full bg-transparent  text-white flex items-center justify-center"
+              style={{ backgroundColor: "#8586bd" }}
+            >
               <MdElectricBolt className="mx-auto h-[0.9rem] w-[0.9rem]" />
             </div>
             <p className=" text-center  text-sm px-2 py-2 hidden lg:block text-white">
