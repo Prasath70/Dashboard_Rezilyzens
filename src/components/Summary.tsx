@@ -4,7 +4,6 @@ import {
   Cell,
   BarChart,
   Bar,
-  Rectangle,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -129,7 +128,6 @@ function Summary() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" tick={{ fill: "white" }} />
               <YAxis tick={{ fill: "white" }} />
-              <Tooltip />
               <Bar dataKey="count_1" fill={COLORS[0]} />
               <Bar dataKey="count_2" fill={COLORS[1]} />
               <Bar dataKey="count_3" fill={COLORS[2]} />
